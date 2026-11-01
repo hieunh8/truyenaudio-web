@@ -18,8 +18,13 @@
 			"service": "truyen-audio-web"
 		}
 	],
+	"r2_buckets": [
+		{
+			"binding": "NEXT_INC_CACHE_R2_BUCKET",
+			"bucket_name": "truyen-audio"
+		}
+	],
 	"images": {
-		// Enable image optimization
 		"binding": "IMAGES"
 	}
 }
