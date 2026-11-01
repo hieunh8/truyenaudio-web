@@ -13,15 +13,9 @@
 	},
 	"services": [
 		{
-			// Self-reference service binding, the service name must match the worker name
+			// Self-reference service binding
 			"binding": "WORKER_SELF_REFERENCE",
 			"service": "truyen-audio-web"
-		}
-	],
-	"r2_buckets": [
-		{
-			"binding": "NEXT_INC_CACHE_R2_BUCKET",
-			"bucket_name": "truyen-audio"
 		}
 	],
 	"images": {
