@@ -1,0 +1,25 @@
+/** Brand mark: headphone arc around sound-wave bars that double as book pages. Same artwork as app/icon.svg. */
+export default function Logo({ size = 36, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 64 64"
+      width={size}
+      height={size}
+      className={className}
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect width="64" height="64" rx="15" fill="#0B1020" />
+      <rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="#D9B25F" strokeOpacity="0.45" strokeWidth="1.5" />
+      <path d="M15 38v-6a17 17 0 0 1 34 0v6" fill="none" stroke="#D9B25F" strokeWidth="4" strokeLinecap="round" />
+      <rect x="10.5" y="36" width="8" height="14" rx="4" fill="#D9B25F" />
+      <rect x="45.5" y="36" width="8" height="14" rx="4" fill="#D9B25F" />
+      <g stroke="#EDE8DC" strokeWidth="3.4" strokeLinecap="round">
+        <line x1="25" y1="35" x2="25" y2="45" />
+        <line x1="32" y1="28" x2="32" y2="52" />
+        <line x1="39" y1="33" x2="39" y2="47" />
+      </g>
+    </svg>
+  );
+}
