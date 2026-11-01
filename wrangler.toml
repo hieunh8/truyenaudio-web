@@ -1,10 +1,12 @@
 name = "truyenaudio"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
-pages_build_output_dir = ".vercel/output/static"
+
+# OpenNext build output directory
+main = ".open-next/worker.js"
 
 [vars]
 NEXT_PUBLIC_SITE_URL = "https://truyenaudio.pages.dev"
 
-# Tell Cloudflare Pages to only install Node dependencies
-# Python requirements.txt in parent directory is for local LLM pipeline only
+[[assets]]
+directory = ".open-next/assets"
