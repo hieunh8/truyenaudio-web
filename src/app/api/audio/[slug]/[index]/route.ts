@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { getChapter, getStory } from "@/lib/catalog";
-import { WORKSPACE_ROOT, getR2Config } from "@/lib/config";
+import { getWorkspaceRoot, getR2Config } from "@/lib/config";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -60,7 +60,7 @@ async function handle(req: Request, ctx: Ctx, head: boolean) {
   }
 
   // Local mode: stream from output/<story_id>/audio with Range support
-  const audioRoot = process.env.AUDIO_ROOT || path.join(WORKSPACE_ROOT, "output");
+  const audioRoot = process.env.AUDIO_ROOT || path.join(getWorkspaceRoot(), "output");
   if (!/^[0-9A-Za-z_]+$/.test(story.story_id)) return notFound();
   if (path.basename(chapter.audio_file) !== chapter.audio_file || !/^[\w.-]+\.mp3$/.test(chapter.audio_file)) {
     return notFound();

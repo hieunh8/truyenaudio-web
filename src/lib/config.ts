@@ -1,4 +1,3 @@
-import path from "node:path";
 import { BRAND_NAME, SITE_DESCRIPTION as BRAND_DESCRIPTION } from "./brand";
 
 export const SITE_URL = (
@@ -20,8 +19,14 @@ if (
 export const SITE_NAME = BRAND_NAME;
 export const SITE_DESCRIPTION = BRAND_DESCRIPTION;
 
-// Repository root (web/ is one level below it)
-export const WORKSPACE_ROOT = path.resolve(process.cwd(), "..");
+// WORKSPACE_ROOT is only used in server-side API routes (not imported in client components).
+// Import path lazily inside server-only files to avoid bundling node:path into the browser.
+// Usage: import { getWorkspaceRoot } from "@/lib/config-server"
+export function getWorkspaceRoot(): string {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const path = require("path") as typeof import("path");
+  return path.resolve(process.cwd(), "..");
+}
 
 export type R2Config = {
   accountId: string;

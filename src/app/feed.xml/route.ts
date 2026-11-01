@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { getStories, getStory } from "@/lib/catalog";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL, WORKSPACE_ROOT } from "@/lib/config";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL, getWorkspaceRoot } from "@/lib/config";
 
 export const revalidate = 3600;
 
@@ -17,7 +17,7 @@ function esc(s: string): string {
 function fileSize(storyId: string, audioFile: string): number | null {
   if (!/^[0-9A-Za-z_]+$/.test(storyId) || !/^[\w.-]+\.mp3$/.test(audioFile)) return null;
   try {
-    return fs.statSync(path.join(WORKSPACE_ROOT, "output", storyId, "audio", audioFile)).size;
+    return fs.statSync(path.join(getWorkspaceRoot(), "output", storyId, "audio", audioFile)).size;
   } catch {
     return null;
   }
