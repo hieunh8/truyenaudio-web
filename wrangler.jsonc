@@ -1,7 +1,7 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"main": ".open-next/worker.js",
-	"name": "truyen-audio-web",
+	"name": "truyenaudio-web",
 	"compatibility_date": "2026-11-01",
 	"compatibility_flags": [
 		"nodejs_compat",
@@ -11,13 +11,6 @@
 		"directory": ".open-next/assets",
 		"binding": "ASSETS"
 	},
-	"services": [
-		{
-			// Self-reference service binding
-			"binding": "WORKER_SELF_REFERENCE",
-			"service": "truyen-audio-web"
-		}
-	],
 	"images": {
 		"binding": "IMAGES"
 	}
